@@ -1,0 +1,7 @@
+public/
+*.psd
+*.pdf
+*.png
+*.PNG
+/test
+/spec
