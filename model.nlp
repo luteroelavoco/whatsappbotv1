@@ -1,0 +1,382 @@
+{
+  "settings": {
+    "languages": [
+      "pt"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "pt"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "pt": {
+        "settings": {
+          "locale": "pt",
+          "trainByDomain": false,
+          "tag": "domain-manager-pt",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "oi": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "ola": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "hell": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "ai,e": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "oie": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "boa,noit": {
+            "intent": "greetings.greeting.night",
+            "domain": "default"
+          },
+          "bom,dia": {
+            "intent": "greetings.greeting.day",
+            "domain": "default"
+          },
+          "boa,tard": {
+            "intent": "greetings.greeting.noon",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greetings.hello": "default",
+          "greetings.greeting.night": "default",
+          "greetings.greeting.day": "default",
+          "greetings.greeting.noon": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "oi !",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "olá !",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello !",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "e aí ?!",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "oie !",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "Boa noite !",
+            "intent": "greetings.greeting.night"
+          },
+          {
+            "domain": "default",
+            "utterance": "Bom Dia !",
+            "intent": "greetings.greeting.day"
+          },
+          {
+            "domain": "default",
+            "utterance": "Boa tarde!",
+            "intent": "greetings.greeting.noon"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "pt",
+              "tag": "nlu-pt",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "oi": 1,
+              "ola": 1,
+              "hell": 1,
+              "e": 1,
+              "ai": 1,
+              "oie": 1,
+              "boa": 1,
+              "noit": 1,
+              "bom": 1,
+              "dia": 1,
+              "tard": 1
+            },
+            "intents": {
+              "greetings.hello": 1,
+              "greetings.greeting.night": 1,
+              "greetings.greeting.day": 1,
+              "greetings.greeting.noon": 1
+            },
+            "intentFeatures": {
+              "greetings.hello": {
+                "oi": 1,
+                "ola": 1,
+                "hell": 1,
+                "e": 1,
+                "ai": 1,
+                "oie": 1
+              },
+              "greetings.greeting.night": {
+                "boa": 1,
+                "noit": 1
+              },
+              "greetings.greeting.day": {
+                "bom": 1,
+                "dia": 1
+              },
+              "greetings.greeting.noon": {
+                "boa": 1,
+                "tard": 1
+              }
+            },
+            "featuresToIntent": {
+              "oi": [
+                "greetings.hello"
+              ],
+              "ola": [
+                "greetings.hello"
+              ],
+              "hell": [
+                "greetings.hello"
+              ],
+              "e": [
+                "greetings.hello"
+              ],
+              "ai": [
+                "greetings.hello"
+              ],
+              "oie": [
+                "greetings.hello"
+              ],
+              "boa": [
+                "greetings.greeting.night",
+                "greetings.greeting.noon"
+              ],
+              "noit": [
+                "greetings.greeting.night"
+              ],
+              "bom": [
+                "greetings.greeting.day"
+              ],
+              "dia": [
+                "greetings.greeting.day"
+              ],
+              "tard": [
+                "greetings.greeting.noon"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "pt",
+                "tag": "nlu-pt",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "oi",
+                "ola",
+                "hell",
+                "e",
+                "ai",
+                "oie",
+                "boa",
+                "noit",
+                "bom",
+                "dia",
+                "tard"
+              ],
+              "intents": [
+                "greetings.hello",
+                "greetings.greeting.night",
+                "greetings.greeting.day",
+                "greetings.greeting.noon"
+              ],
+              "perceptrons": [
+                [
+                  5.8820905685424805,
+                  5.908027172088623,
+                  5.88910436630249,
+                  2.965116262435913,
+                  2.965116262435913,
+                  5.866151809692383,
+                  -5.589013576507568,
+                  -2.8235204219818115,
+                  -4.178089618682861,
+                  -4.178089618682861,
+                  -2.7644872665405273,
+                  8.373713289372258
+                ],
+                [
+                  -0.5982994437217712,
+                  -0.595694363117218,
+                  -0.5929387211799622,
+                  -0.33108365535736084,
+                  -0.33108365535736084,
+                  -0.589002251625061,
+                  4.353231430053711,
+                  9.081046104431152,
+                  -0.42154088616371155,
+                  -0.42154088616371155,
+                  -4.736405372619629,
+                  0.599914741069863
+                ],
+                [
+                  -0.9116426110267639,
+                  -0.9074221253395081,
+                  -0.9029684066772461,
+                  -0.5033888220787048,
+                  -0.5033888220787048,
+                  -0.8965697884559631,
+                  -0.7332905530929565,
+                  -0.2998351752758026,
+                  6.684476852416992,
+                  6.684476852416992,
+                  -0.42166373133659363,
+                  0.9089093543463729
+                ],
+                [
+                  -0.6278631091117859,
+                  -0.6210536360740662,
+                  -0.6156113743782043,
+                  -0.3704933524131775,
+                  -0.3704933524131775,
+                  -0.6096026301383972,
+                  4.3652238845825195,
+                  -4.704700469970703,
+                  -0.2999977469444275,
+                  -0.2999977469444275,
+                  9.07864761352539,
+                  0.606078718911702
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "pt",
+        "oi !"
+      ],
+      [
+        "pt",
+        "olá !"
+      ],
+      [
+        "pt",
+        "hello !"
+      ],
+      [
+        "pt",
+        "e aí ?!"
+      ],
+      [
+        "pt",
+        "oie !"
+      ],
+      [
+        "pt",
+        "Boa noite !"
+      ],
+      [
+        "pt",
+        "Bom Dia !"
+      ],
+      [
+        "pt",
+        "Boa tarde!"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "pt": {
+        "greetings.hello": [
+          {
+            "answer": "Olá ! Seja bem-vindo ao Whatsapp News. Qual jornal você quer receber notícias ? "
+          }
+        ],
+        "greetings.greeting.night": [
+          {
+            "answer": "Boa noite ! Seja bem-vindo ao Whatsapp News. Qual jornal você quer receber notícias ? "
+          }
+        ],
+        "greetings.greeting.day": [
+          {
+            "answer": "Bom dia ! Seja bem-vindo ao Whatsapp News. Qual jornal você quer receber notícias ? "
+          }
+        ],
+        "greetings.greeting.noon": [
+          {
+            "answer": "Boa tarde ! Seja bem-vindo ao Whatsapp News. Qual jornal você quer receber notícias ? "
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
