@@ -1,8 +1,10 @@
 import { IReplyMessage } from '../IReplyMessage';
-import { newsUseCases } from '@useCases/NewsUseCases';
+import axios from "axios"
 import { getAnswer } from './naturalLanguage';
 import { handleNewsPapper, isNewsMessage } from '@utils/message';
 import { navigatorsType } from '@mytypes/navigators';
+
+const WebScrapingUrl = "https://newswebscraping.herokuapp.com/news"
 
 export async function onMessageAnswer(question) {
   return await getAnswer(question);
@@ -14,7 +16,8 @@ async function sendNewsMessage(client, message) {
 }
 
 async function getNewsAndAnswer(client, message, newspapper: string) {
-  const response = await newsUseCases.execute(navigatorsType[newspapper]);
+  const newsType = navigatorsType[newspapper];
+  const {data : response} = await axios.get(`${WebScrapingUrl}/${newsType}`)
  
   response.linkList
     .map(

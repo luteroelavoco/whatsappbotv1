@@ -16,6 +16,7 @@ export class Venom implements IVenom {
     venom
       .create({
         session: 'Lutero Bot',
+        useChrome: false,
         ...venomOptions
       })
       .then((client) => start(client))
