@@ -11,10 +11,7 @@ export async function onMessageAnswer(question) {
 }
 
 async function sendNewsMessage(client, message) {
-  client.sendText(
-    message.from,
-    "Aguarde... Estou buscando noticias para você"
-  );
+  client.sendText(message.from, "Aguarde... Estou buscando noticias para você");
   await getNewsAndAnswer(client, message, handleNewsPapper(message.body));
 }
 
@@ -27,8 +24,7 @@ async function getNewsAndAnswer(client, message, newspapper: string) {
 
       for (var i = 0; i < data.linkList.length; i++) {
         let item = data.linkList[i];
-         client
-          .sendLinkPreview(message.from, item.href, data.source)
+        client.sendLinkPreview(message.from, item.href, data.source);
       }
     })
     .catch((ex) => {
@@ -44,13 +40,11 @@ export class ReplyMessage implements IReplyMessage {
   constructor() {}
 
   async onMessage(message, client) {
-    
-
     if (isNewsMessage(message.body)) {
       sendNewsMessage(client, message);
     } else {
       const messageToAnswer = await onMessageAnswer(message.body);
-      
+
       const list = [
         {
           title: "Fontes disponiveis",
@@ -74,14 +68,17 @@ export class ReplyMessage implements IReplyMessage {
           ],
         },
       ];
-      client.sendListMenu(
-        message.from,
-        "WhatsappNews",
-        "#NoFakeNews",
-        messageToAnswer,
-        "Escolher fonte",
-        list
-      );
+      client
+        .sendListMenu(
+          message.from,
+          "WhatsappNews",
+          "#NoFakeNews",
+          messageToAnswer,
+          "Escolher fonte",
+          list
+        )
+        .then((result) => {})
+        .catch((ex) => {});
     }
   }
 }
