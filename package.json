@@ -1,6 +1,9 @@
 {
   "name": "nodesetup",
   "version": "2.0.0",
+  "engines": {
+    "node": "14.18.3"
+  },
   "description": "setup for node js projects",
   "main": "src/index.js",
   "author": "Lutero Elavoco",
@@ -35,6 +38,6 @@
   "dependencies": {
     "axios": "^0.26.1",
     "node-nlp": "^4.22.1",
-    "venom-bot": "4.0.0"
+    "venom-bot": "4.0.1"
   }
 }
