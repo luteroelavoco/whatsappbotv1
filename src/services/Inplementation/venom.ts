@@ -27,7 +27,14 @@ export class Venom implements IVenom {
     const onMessage = this.onMessage;
     function start(client) {
       client.onMessage(async (message) => {
+        if(message.isGroupMsg === true)
+          return
+
         onMessage(message, client);
+        
+      }).then(result => {
+
+      }).catch(err=>{
         
       });
     }

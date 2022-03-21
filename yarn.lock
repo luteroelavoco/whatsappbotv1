@@ -7273,10 +7273,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-venom-bot@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/venom-bot/-/venom-bot-4.0.1.tgz#dace3311c01d0023ded5902102e5ee74f638a1a3"
-  integrity sha512-c2ooPMatpDKH7ud79JJK09hyEf1ECErDeZFkaLHnoF2vPRbaGiuCZZxkf2Ncx6CrXQ/nlIml5EKj4xtMIVAG5A==
+venom-bot@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/venom-bot/-/venom-bot-4.0.0.tgz#8ff018b923e5622e695a8037657faf32a93a29be"
+  integrity sha512-9iVMHSMt1FDYinwZ12zRTnRCjLxbXN4UA70T06vXCFvxbzD91oM62p45EzVdDCjeSz599et/6rSUs4N56Gl5hg==
   dependencies:
     atob "^2.1.2"
     axios "^0.21.4"
