@@ -4,7 +4,7 @@ import { getAnswer } from "./naturalLanguage";
 import { handleNewsPapper, isNewsMessage } from "@utils/message";
 import { navigatorsType } from "@mytypes/navigators";
 
-const WebScrapingUrl = "https://newswebscraping.herokuapp.com/news";
+const WebScrapingUrl = "https://whatsappbotapi.vercel.app/api/news/";
 
 export async function onMessageAnswer(question) {
   return await getAnswer(question);
@@ -12,7 +12,7 @@ export async function onMessageAnswer(question) {
 
 async function sendNewsMessage(client, message) {
   client.sendText(message.from, "Aguarde... Estou buscando noticias para você");
-  await getNewsAndAnswer(client, message, handleNewsPapper(message.body));
+  getNewsAndAnswer(client, message, handleNewsPapper(message.body));
 }
 
 async function getNewsAndAnswer(client, message, newspapper: string) {
