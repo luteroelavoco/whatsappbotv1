@@ -3,12 +3,18 @@ export function isNewsMessage(message: string) {
   return search.includes('folha') || search.includes('povo') || search.includes('globo') || search.includes('bbb');
 }
 
+export function isNewsAvalaible(message: string) {
+  let search = '' + message.toLocaleLowerCase();
+  return search.includes('bbb');
+}
+
 export function handleNewsPapper(message: string) {
-  if(message.includes('O Povo'))
+  message = message.toLowerCase();
+  if(message.includes('povo'))
     return "povo";
-  if(message.includes('O Globo'))
+  if(message.includes('globo'))
     return "globo";
-  if(message.includes('BBB'))
+  if(message.includes('bbb'))
     return "bbb";
   return "folha";
 }

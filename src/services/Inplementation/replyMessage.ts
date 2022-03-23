@@ -1,10 +1,16 @@
 import { IReplyMessage } from "../IReplyMessage";
 import axios from "axios";
 import { getAnswer } from "./naturalLanguage";
-import { handleNewsPapper, isNewsMessage } from "@utils/message";
+import {
+  handleNewsPapper,
+  isNewsAvalaible,
+  isNewsMessage,
+} from "@utils/message";
 import { navigatorsType } from "@mytypes/navigators";
 
 const WebScrapingUrl = "https://whatsappbotapi.vercel.app/api/news/";
+const YoutubeLink = "https://www.youtube.com/channel/UC8UgIu7GvQ3JdmWEoJYBGtQ";
+const InstagramLink = "https://www.instagram.com/luteroelavoco/"
 
 export async function onMessageAnswer(question) {
   return await getAnswer(question);
@@ -41,10 +47,26 @@ export class ReplyMessage implements IReplyMessage {
 
   async onMessage(message, client) {
     if (isNewsMessage(message.body)) {
-      sendNewsMessage(client, message);
+      if (isNewsAvalaible(message.body)) sendNewsMessage(client, message);
+      else {
+        await client.sendText(
+          message.from,
+          "Está fonte de notícia estará disponivel apenas em 8 de Abril de 2022. Acompanha meu canal do youtube e meu instagram para mais informações"
+        );
+        await client.sendLinkPreview(
+          message.from,
+          InstagramLink,
+          "Meu Instagram oficial"
+        );
+        await client.sendLinkPreview(
+          message.from,
+          YoutubeLink,
+          "Meu canal do youtube"
+        );
+       
+      }
     } else {
       const messageToAnswer = await onMessageAnswer(message.body);
-
       const list = [
         {
           title: "Fontes disponiveis",
