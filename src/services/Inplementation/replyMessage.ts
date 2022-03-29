@@ -8,9 +8,13 @@ import {
 } from "@utils/message";
 import { navigatorsType } from "@mytypes/navigators";
 
-const WebScrapingUrl = "https://whatsappbotapi.vercel.app/api/news/";
 const YoutubeLink = "https://www.youtube.com/channel/UCnRkmcr5V0Ye5kh1hE5yL2Q";
 const InstagramLink = "https://www.instagram.com/wakandatechbr/"
+
+const instance = axios.create({
+  baseURL: 'https://whatsappbotapi.vercel.app/api/news/',
+  timeout: 5000,
+});
 
 export async function onMessageAnswer(question) {
   return await getAnswer(question);
@@ -23,8 +27,8 @@ async function sendNewsMessage(client, message) {
 
 async function getNewsAndAnswer(client, message, newspapper: string) {
   const newsType = navigatorsType[newspapper];
-  axios
-    .get(`${WebScrapingUrl}/${newsType}`)
+  instance
+    .get(`${newsType}`)
     .then(async (response) => {
       const { data } = response;
 
