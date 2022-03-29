@@ -87,6 +87,14 @@ export class ReplyMessage implements IReplyMessage {
               title: "O Globo",
               description: " ",
             },
+            {
+              title: "CNN",
+              description: " ",
+            },
+            {
+              title: "Jornal de Angola",
+              description: " ",
+            },
           ],
         },
       ];
