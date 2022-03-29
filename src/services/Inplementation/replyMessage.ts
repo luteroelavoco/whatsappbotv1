@@ -9,8 +9,8 @@ import {
 import { navigatorsType } from "@mytypes/navigators";
 
 const WebScrapingUrl = "https://whatsappbotapi.vercel.app/api/news/";
-const YoutubeLink = "https://www.youtube.com/channel/UC8UgIu7GvQ3JdmWEoJYBGtQ";
-const InstagramLink = "https://www.instagram.com/luteroelavoco/"
+const YoutubeLink = "https://www.youtube.com/channel/UCnRkmcr5V0Ye5kh1hE5yL2Q";
+const InstagramLink = "https://www.instagram.com/wakandatechbr/"
 
 export async function onMessageAnswer(question) {
   return await getAnswer(question);
@@ -53,12 +53,12 @@ export class ReplyMessage implements IReplyMessage {
           message.from,
           "Está fonte de notícia estará disponivel apenas em 8 de Abril de 2022. Acompanha meu canal do youtube e meu instagram para mais informações"
         );
-        await client.sendLinkPreview(
+         client.sendLinkPreview(
           message.from,
           InstagramLink,
           "Meu Instagram oficial"
         );
-        await client.sendLinkPreview(
+         client.sendLinkPreview(
           message.from,
           YoutubeLink,
           "Meu canal do youtube"
