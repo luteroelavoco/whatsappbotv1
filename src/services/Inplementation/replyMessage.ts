@@ -12,8 +12,8 @@ const YoutubeLink = "https://www.youtube.com/channel/UCnRkmcr5V0Ye5kh1hE5yL2Q";
 const InstagramLink = "https://www.instagram.com/wakandatechbr/"
 
 const instance = axios.create({
-  baseURL: 'https://whatsappbotapi.vercel.app/api/news/',
-  timeout: 5000,
+  baseURL: 'https://newswebscrapingapi.vercel.app/api/news/',
+  timeout: 30000,
 });
 
 export async function onMessageAnswer(question) {
