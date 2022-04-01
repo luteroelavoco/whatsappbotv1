@@ -5,7 +5,7 @@ export function isNewsMessage(message: string) {
 
 export function isNewsAvalaible(message: string) {
   let search = '' + message.toLocaleLowerCase();
-  return search.includes('folha') || search.includes('povo') || search.includes('globo') || search.includes('bbb');
+  return search.includes('bbb');
 }
 
 export function handleNewsPapper(message: string) {
