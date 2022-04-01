@@ -9,7 +9,7 @@ import {
 import { navigatorsType } from "@mytypes/navigators";
 
 const YoutubeLink = "https://www.youtube.com/channel/UCnRkmcr5V0Ye5kh1hE5yL2Q";
-const InstagramLink = "https://www.instagram.com/wakandatechbr/"
+const InstagramLink = "https://www.instagram.com/wakandatechbr"
 
 const instance = axios.create({
   baseURL: 'https://newswebscrapingapi.vercel.app/api/news/',
@@ -53,9 +53,9 @@ export class ReplyMessage implements IReplyMessage {
     if (isNewsMessage(message.body)) {
       if (isNewsAvalaible(message.body)) sendNewsMessage(client, message);
       else {
-        await client.sendText(
+        client.sendText(
           message.from,
-          "Está fonte de notícia estará disponivel apenas em 8 de Abril de 2022. Acompanha meu canal do youtube e meu instagram para mais informações"
+          "Esta fonte de notícia estará disponivel apenas em 8 de Abril de 2022. Acompanha meu canal do youtube e meu instagram para mais informações"
         );
          client.sendLinkPreview(
           message.from,
