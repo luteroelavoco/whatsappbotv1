@@ -111,8 +111,7 @@ export class ReplyMessage implements IReplyMessage {
           "Escolher fonte",
           list
         )
-        .then((result) => {})
-        .catch((ex) => {});
+       
     }
   }
 }
