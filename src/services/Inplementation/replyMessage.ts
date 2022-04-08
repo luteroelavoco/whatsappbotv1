@@ -54,7 +54,7 @@ export class ReplyMessage implements IReplyMessage {
       else {
         client.sendText(
           message.from,
-          'Esta fonte de notícia estará disponivel apenas em 8 de Abril de 2022. Acompanha meu canal do youtube e meu instagram para mais informações',
+          'Esta fonte de notícia estará disponivel apenas em 15 de Abril de 2022. Acompanha meu canal do youtube e meu instagram para mais informações',
         );
         client.sendLinkPreview(
           message.from,
